@@ -1,7 +1,6 @@
-
 -- tables
 -- Table: auth
-CREATE TABLE auth (
+CREATE TABLE IF NOT EXISTS auth (
     id int NOT NULL AUTO_INCREMENT COMMENT 'id of the passwords',
     users_id int NOT NULL,
     password char(60) NOT NULL,
@@ -13,7 +12,7 @@ CREATE TABLE auth (
 CREATE INDEX userid ON auth (users_id);
 
 -- Table: keys
-CREATE TABLE `keys` (
+CREATE TABLE IF NOT EXISTS `keys` (
     id int NOT NULL AUTO_INCREMENT,
     users_id int NOT NULL,
     tfa_key blob NOT NULL,
@@ -25,7 +24,7 @@ CREATE TABLE `keys` (
 CREATE INDEX userid ON `keys` (users_id);
 
 -- Table: users
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id int NOT NULL AUTO_INCREMENT,
     username varchar(16) NOT NULL COMMENT 'Username of users.',
     email varchar(255) NOT NULL,
